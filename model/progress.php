@@ -4,7 +4,7 @@
         $result = substr(str_shuffle(implode(array_merge(range('A','Z'),range('a','z'),array('0','9')))),0, $length-1);
         return $result;
     }
-    $event = $_GET['event'];
+    $event = $_POST['event'];
     switch($event){
         case 'registeraccount':{
             $username = $_POST['username'];

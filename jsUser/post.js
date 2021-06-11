@@ -30,43 +30,55 @@ $(document).ready(function () {
      }
 });
      $("#ip-post-post").click(function(){
-      var fileName = $('input[type=file]').val();
+      var masp     = makeid();
+      var username = localStorage.getItem("username");
+      var gender   = localStorage.getItem("gioitinh");
+      var link     = localStorage.getItem("link");
+      var sdt      = localStorage.getItem("sdt");
+      var sever = $("#ip-sever-post").val();
+      var team = $("#ip-team-post").val();
+      var power = $("#rangechienluc").val();
+      var description = $("#text-des-post").val();
+      var cost = $("#ip-cost-post").val();
+      if(sever.trim()==""){
+         bootboxwarning("Bạn chưa nhập server ","Hãy kiểm tra lại sever",function(){});
+         
+      }else if(cost.trim()==""){
+         bootboxwarning("Vui lòng nhập vào giá tiền ","Hãy kiểm tra lại giá tiền",function(){});
+      }else if(isNumeric(cost)==false){
+         bootboxwarning("Nhập vào số tiền không nhập chữ ","Hãy kiểm tra lại giá tiền",function(){});
+      }else{
+         var fileName = $('input[type=file]').val();
          if(fileName.trim()==""){
             bootboxalert("Hãy chọn ảnh cho bài đăng của mình","Chưa thêm ảnh ?",function(){
                   
             });
          }else{
-            bootboxalert("Bài đăng của bạn sẽ xuất hiện sau khi được kiểm duyệt, Hãy nhấn 'OK' để hoàn thành thao tác ","Cảm ơn bạn đã đăng bài",function(){
-                        var masp     = makeid();
-                     var username = localStorage.getItem("username");
-                     var gender   = localStorage.getItem("gioitinh");
-                     var link     = localStorage.getItem("link");
-                     var sdt      = localStorage.getItem("sdt");
-                     var sever = $("#ip-sever-post").val();
-                     var team = $("#ip-team-post").val();
-                     var power = $("#rangechienluc").val();
-                     var description = $("#text-des-post").val();
-                     var cost = $("#ip-cost-post").val();
+            bootboxalert("Bài đăng của bạn sẽ xuất hiện sau khi được kiểm duyệt </br> Hãy nhấn <strong>OK</strong> để hoàn thành thao tác ","Cảm ơn bạn đã đăng bài",function(){
                      
-                     
+                     var submitpost = document.getElementById("upload-form");
                   
                      var dataSend= {event:'post',masp:masp,card:card,sdt:sdt,link:link,gender:gender
                                     ,username:username,sever:sever,team:team,power:power
                                     ,description:description,cost:cost};
                   
                                  
-                     queryGET_json('model/upload_image.php',dataSend,function(res){
+                     queryPOST_json('model/upload_image.php',dataSend,function(res){
                         console.log(res);
                         if(res.post==1){
-                           
+                           var mabaiviet = res.mabaiviet;
+                           $('.insert-send-data').html('<input type="text" value="'+mabaiviet+'" name="mabaiviet" hidden id="send-masp-post">');
+                           submitpost.submit();
                         }else{
-                           alert("thất bại");
+                           bootboxerror("Đăng bài thất bại");
                         }
                      });
-                     var submitpost = document.getElementById("upload-form");
-                     submitpost.submit();
+                    
+                    
                      });
-            }
+         }
+      }
+     
       
      });
     

@@ -143,7 +143,7 @@
     <div class="col-lg-3"></div>
     <div class="col-lg-6 content g-1">
       <div class="row">
-        <span class="title">Đăng bài để bán nào </span>
+        <span class="title">Bạn muốn đăng gì nào ?</span>
       </div>
       <div class="row">
         <label class="form-label col-2" >Sever</label>
@@ -191,6 +191,7 @@
             </label>
           <form action="#" method="POST"  enctype="multipart/form-data" name="upload-form"   id="upload-form">
               <input class="col-9 col-lg-10" id="ip-file-post" name="file-upload[]"  hidden accept="image/*" multiple type="file">
+             <div class="insert-send-data">  </div>
           </form>
           <?php include('model/upload_image.php');?>
        

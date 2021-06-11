@@ -62,7 +62,7 @@ function bootboxalert(message,title,callback){
 function bootboxwarning(message,title,callback){
     bootbox.confirm({
         message:message,
-        title:"<img src='images/icons/icon_naruto.png' width='35px' height='35px'></img> <span style='color:yellow;'>"+title+"</span>",
+        title:"<img src='images/icons/icon_naruto.png' width='35px' height='35px'></img> <span style='color:rgb(124, 148, 16);'>"+title+"</span>",
         backdrop: true,
         callback: callback
     });

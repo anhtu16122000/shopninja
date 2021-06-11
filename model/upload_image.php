@@ -6,6 +6,7 @@
     }
     $arraynameImage =array();
         if(isset($_FILES['file-upload'])){
+          
                 $data = $_FILES['file-upload'];
                 foreach($data['name'] as $key => $value){
                     if(!empty($value)){
@@ -14,39 +15,41 @@
                         $imageName = $name.".".$extension;
                         $arraynameImage[] = $imageName;
                         @move_uploaded_file($data['tmp_name'][$key],'images/post/'.$imageName);
-                        
-                        echo '
-                        <script>
-                            if ( window.history.replaceState ) {
-                                window.history.replaceState( null, null, window.location.href );
-                            }
-                        </script>
-                        ';
-                    
-                        
+                      
                     }
                 }
+                if(!empty($arraynameImage)){
+                    $nameImage = implode("||",$arraynameImage); 
+                    if(isset($_POST['mabaiviet'])){
+                        $mabaiviet = $_POST['mabaiviet'];
+                        $baiviet = new tableBaiViet;
+                        $sql = "UPDATE `baiviet` SET `image` = '".$nameImage."' WHERE `baiviet`.`mabaiviet` = '$mabaiviet'";
+                        $check = $baiviet->updateData($sql);
+                    }
+                }   
+                echo '
+                <script>
+                    if ( window.history.replaceState ) {
+                        window.history.replaceState( null, null, window.location.href );
+                    }
+                </script>
+                ';
+
         }
-    if(!empty($arraynameImage)){
-        $nameImage = implode("||",$arraynameImage);  
-        $baiviet = new tableBaiViet;
-        // $sql = "UPDATE `baiviet` SET `image`='$nameImage'WHERE masp='$masp'";
-        // $baiviet->updateData($sql);   
-    }
-    if(isset($_GET['event'])){
-        $event = $_GET['event'];  
+    if(isset($_POST['event'])){
+        $event = $_POST['event'];  
         if($event=='post'){
-            $masp =  $_GET['masp'];
+            $masp =  $_POST['masp'];
             $mabaiviet = randomFileName();
-            $card = $_GET['card'];
-            $sdt  = $_GET['sdt'];
-            $link = $_GET['link'];
-            $username= $_GET['username'];
-            $sever = $_GET['sever'];
-            $team  = $_GET['team'];
-            $power = $_GET['power'];
-            $description = $_GET['description'];
-            $cost  = $_GET['cost'];
+            $card = $_POST['card'];
+            $sdt  = $_POST['sdt'];
+            $link = $_POST['link'];
+            $username= $_POST['username'];
+            $sever = $_POST['sever'];
+            $team  = $_POST['team'];
+            $power = $_POST['power'];
+            $description = $_POST['description'];
+            $cost  = $_POST['cost'];
             $nameImage ="";
            
             $sanpham = new tableSanpham;
@@ -54,9 +57,9 @@
             if($sanpham->insert($masp,$sever,$power,$card,$cost,$team)){
                
                 $baiviet->insert($mabaiviet,$nameImage,$description,$username,$masp);
-                $data =  $sanpham->getAllData();
-                $res['imageName'] = $data['image'];
+              
                 $res[$event] =1;
+                $res['mabaiviet'] = $mabaiviet;
           
             }else{
                 $res[$event] =0;    
