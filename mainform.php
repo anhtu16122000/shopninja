@@ -279,8 +279,8 @@
      <script src="jsUser/dangky.js"></script>
      <script src="jsUser/ajax.js"></script>    
      <script src="jsUser/sigin.js"></script>
-     <Script src="jsUser/editinfo.js"></Script>
      <Script src="jsUser/post.js"></Script>
+     <Script src="jsUser/editUser"></Script>
     
 </body>
 </html>
