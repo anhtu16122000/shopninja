@@ -5,14 +5,17 @@ $(document).ready(function () {
         var password = $(".ip-password-dk").val();
         var repassword = $(".ip-repassword-dk").val();
         var link = $(".ip-link-dk").val();
-        var phone = $(".ip-phone-dk").val();
+        var phone = $(".ip-phone-dk").val().trim();
         var gender = $(".ip-gender-dk").val();
         if(password.trim()=="" || username.trim()=="" || link.trim()=="" || repassword.trim() =="" || phone.trim()==""|| link.trim()==""){
-            bootboxwarning("Vui lòng điền hết thông tin","Thông báo !!!",function(){});
+            bootboxwarning("Vui lòng điền hết thông tin","Thông báo",function(){});
         }else if(password.trim()!=repassword.trim()){
-            bootboxerror("Mật khẩu không trùng nhau","Kiểm tra lại mật khẩu !!!",function(){});
+            bootboxerror("Mật khẩu không trùng nhau","Kiểm tra lại mật khẩu",function(){});
         }else if(isNumeric(phone)==false){
-            bootboxerror("Số điện thoại này đã đúng chưa ?","Kiểm tra lại số điện thoại !!!",function(){});
+            bootboxerror("Số điện thoại này đã đúng chưa ?","Kiểm tra lại số điện thoại",function(){});
+        }else if(phone.length !=10){
+            alert(phone.length);
+            bootboxerror("Số điện thoại có vẻ không đúng ? vui lòng nhập lại","Nhập đúng số điện thoại chưa ?",function(){});
         }else{
             var dataSend = {event:'registeraccount',
                             username:username,

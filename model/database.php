@@ -15,14 +15,19 @@ class dataBase{
                 exit();
             }
         }
-
+        public function selectData($sql){
+            $this->connect();
+            $query = mysqli_query($this->conn,$sql);
+            $result =  mysqli_num_rows($query);
+            return $result;          
+        }
         public function getAllData($sql){
             $this->connect();
             $query = mysqli_query($this->conn,$sql);
             $datas = array();
             if($query){
                 while($data =  mysqli_fetch_assoc($query)){
-                     $datas = $data;    
+                     $datas[] = $data;    
                 }
             }
             return $datas;
@@ -43,7 +48,8 @@ class dataBase{
         }
         public function updateData($sql){
             $this->connect();
-            return mysqli_query($this->conn,$sql);
+            $result = mysqli_query($this->conn,$sql);
+            return $result;
         }
     }
     //=========================Table San Phẩm===============================================
@@ -73,12 +79,16 @@ class dataBase{
         } 
 
         public function insert($username,$password,$link,$sdt,$gioitinh,$cmnd,$avt,$rank){
-            $sql = "INSERT INTO `user`(`username`, `password`, `link`, `sdt`, `gioitinh`, `cmnd`, `avt`, `rank`)
+            $sql = "INSERT INTO `user` (`username`, `password`, `link`, `sdt`, `gioitinh`, `cmnd`, `avt`, `rank`)
              VALUES ('$username','$password','$link','$sdt','$gioitinh','$cmnd','$avt','$rank')";
             return $this->insertData($sql);
         }
-        public function update($username,$password,$link,$sdt,$gioitinh,$cmnd,$avt,$rank){
-            $sql = "UPDATE `user` SET `password`='$password',`link`='$link',`sdt`='$sdt',`gioitinh`='$gioitinh',`cmnd`='$cmnd',`avt`='$avt',`rank`='$rank' WHERE username =$username";
+        public function update($username,$password,$link,$sdt,$gioitinh,$rank="client",$cmnd="",$avt="regular.png"){
+            $sql = "UPDATE `user` SET `password`='$password',`link`='$link',`sdt`='$sdt',`gioitinh`='$gioitinh',`cmnd`='$cmnd',`avt`='$avt',`rank`='$rank' WHERE username ='$username'";
+            return $this->updateData($sql);
+        }
+        public function updateCustom($username,$password,$link,$sdt,$gioitinh){
+            $sql = "UPDATE `user` SET `password`='$password',`link`='$link',`sdt`='$sdt',`gioitinh`='$gioitinh' WHERE username ='$username'";
             return $this->updateData($sql);
         }
     }
@@ -106,9 +116,9 @@ class dataBase{
             return $this->deleteData($sql);
         } 
 
-        public function insert($mabaiviet,$image,$mota,$username,$masp){
-            $sql = "INSERT INTO `baiviet`(`mabaiviet`,`image`, `mota`, `username`, `masp`) 
-                    VALUES ('$mabaiviet','$image','$mota','$username','$masp')";
+        public function insert($mabaiviet,$image,$mota,$username,$masp,$time){
+            $sql = "INSERT INTO `baiviet`(`mabaiviet`,`image`, `mota`, `username`, `masp`,`time`) 
+                    VALUES ('$mabaiviet','$image','$mota','$username','$masp','$time')";
             return $this->insertData($sql);
         }
         public function update($mabaiviet,$image,$mota,$username,$masp){

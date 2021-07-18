@@ -1,32 +1,32 @@
-<?php ob_start()?>
+<?php ob_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shop Ninja</title>
+    <title>Shop Naruto</title>
     <link rel="stylesheet" href="css/bootstrap.min.css" >
+    <link rel="stylesheet" href="fancybox-master/dist/jquery.fancybox.min.css"/>
     <link rel="stylesheet" href="cssUser/main.css">
-    <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-  />
-  <script src="jsUser/functions.js"></script>
+   
 </head>
 <body>
      <!-- start menu bar -->
      <section class="fixed-top bg-light" style="z-index:20;">
      <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container-fluid container ">
-            <span style="font-family: fantasy; padding-right: 50px;" class="menutitle">NinjaRebirth</span>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
+      <span style="font-family: fantasy; padding-right: 50px;" class="menutitle">NinjaRebirth</span>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>      
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item"  id="menuone">
               <a class="nav-link linkhome" aria-current="page" href="#">Trang chủ</a>
+            </li>
+            <li class="nav-item"  id="">
+              <a class="nav-link linkinfo"  href="#">Thông tin</a>
             </li>
             <li class="nav-item"  id="menutwo">
               <a class="nav-link linksignin"  href="#">Đăng nhập</a>
@@ -39,6 +39,7 @@
             </li>
           </ul>
         </div>
+        
       </div>
     </nav>
   </section>
@@ -72,12 +73,14 @@
           <div class="col-12 title">
               Đăng nhập
           </div>
+        
           <div class="input-group mb-3 ">
               <input type="text" class="form-control" name="username" placeholder="Username" id="signin-username" aria-label="Username" aria-describedby="basic-addon1">
             </div>
             <div class="input-group mb-3">
               <input type="password" class="form-control" name="password" placeholder="Password" id="signin-password"aria-label="Password" aria-describedby="basic-addon1">
             </div>
+    
             <div class="row">
               <div class="col-6 col-lg-5 linkdangky" style="cursor: pointer;"> Chưa có tài khoản ?</div>
                 <div class="col-1 col-lg-4"></div>
@@ -146,17 +149,17 @@
         <span class="title">Bạn muốn đăng gì nào ?</span>
       </div>
       <div class="row">
-        <label class="form-label col-2" >Sever</label>
+        <label class="form-label col-2" >Server</label>
         <input type="number"  min="1" id="ip-sever-post" class='col-2'>
         <label class="form-label col-3" style="text-align: center;">Đội hình</label>
         <select class="col-4 col-lg-3" aria-label="Default select example" id="ip-team-post">
-          <option selected value="chunin">Chūnin</option>
-          <option value="jonin">Jōnin</option>
-          <option value="kage">Kage</option>
-          <option value="lucdao">Lục đạo</option>
-          <option value="lucdao1">Lục đạo +1</option>
-          <option value="lucdao2">Lục đạo +2</option>
-          <option value="vuotqua">Vượt qua</option>
+          <option selected value="Chūnin">Chūnin</option>
+          <option value="Jōnin">Jōnin</option>
+          <option value="Kage">Kage</option>
+          <option value="Lục đạo">Lục đạo</option>
+          <option value="Lục đạo +1">Lục đạo +1</option>
+          <option value="Lục đạo +2">Lục đạo +2</option>
+          <option value="Vượt qua">Vượt qua</option>
         </select>
       </div>
       <div class="row">
@@ -191,7 +194,7 @@
             </label>
           <form action="#" method="POST"  enctype="multipart/form-data" name="upload-form"   id="upload-form">
               <input class="col-9 col-lg-10" id="ip-file-post" name="file-upload[]"  hidden accept="image/*" multiple type="file">
-             <div class="insert-send-data">  </div>
+             <div class="insert-send-data"></div>
           </form>
           <?php include('model/upload_image.php');?>
        
@@ -269,20 +272,156 @@
           <div class="col-lg-3"></div>  
       </div>
   </section>
- 
 <!-- end form chinh sua thong tin -->
+ 
+          <div class="col-lg-1"></div>
+      </div>
+  </section>
+ 
   </div>
      <!-- end slider -->
+     <!-- --------Scroll Up ------ -->
+     <div class="position-fixed bottom-0 end-0 scrollup" style="z-index:20; cursor: pointer;" >
+        <img src="images/icons/scroll-up.png" atl="Ấn để lên trên">
+    </div>
+
+
+
+      <!-- start form trang chu -->
+     <section class="formtrangchu container-fluid hidden">
+     <div class="row">
+     <div class="col-lg-1"></div>
+          <!-- start main -->
+        <div class="col-lg-10 content">
+          <div class="row">
+              <div class="col-12 title">
+                  Danh sách bài đăng
+              </div>
+          </div>
+          <section class=" mt-4 main-content mb-2">
+         
+              <div class="row row-cols-1 row-cols-md-3 g-4">
+                    <?php include('model/buildContent.php'); ?>
+              </div>
+             
+          </section>  
+        </div>
+     </div>   
+     </section> 
+        <!-- end form trang chu -->
+         <!-- start form my post -->
+     <section class="formmypost container-fluid hidden">
+     <div class="row">
+     <div class="col-lg-1"></div>
+          <!-- start main -->
+        <div class="col-lg-10 content">
+          <div class="row">
+              <div class="col-12 title">
+                  Bài viết của bạn
+              </div>
+          </div>
+          <section class=" mt-4 main-content mb-2">
+        
+              <div class="row row-cols-1 row-cols-md-3 g-4" id="main-formmypost">
+                   
+              </div>
+          </section>  
+          
+        </div>
+     </div>    
+    </section>     
+        <!-- end form my post -->
+             <!-- start form thong bao -->
+     <section class="forminfo container-fluid hidden">
+     <div class="row">
+     <div class="col-lg-1"></div>
+          <!-- start main -->
+        <div class="col-lg-10 content">
+          <div class="row">
+              <div class="col-12 title">
+                  Thông tin
+              </div>
+          </div>
+          <section class=" mt-4 main-content mb-2">
+        
+              <div class="row row-cols-1 " id="main-forminfo">
+              <div class="accordion info-accordion" id="accordionPanelsStayOpenExample">
+                    <div class="accordion-item">
+                      <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+                          <span style="text-align:center;">Giao dịch trung gian</span>
+                        </button>
+                      </h2>
+                      <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
+                        <div class="accordion-body">
+                          This is the first item's accordion body
+                          It is shown by default, until the collapse plugin adds the appropriate classes 
+                          that we use to style each element. These classes control the overall appearance, 
+                          as well as the showing and hiding via CSS transitions. You can modify any of this with 
+                          custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the 
+                          accordion-body though the transition does limit overflow.
+                          <div class="row row-cols-1 row-cols-md-3 g-4">
+                          <a href="images/slider/slider01.jpg" data-fancybox>  <img src="images/slider/slider01.jpg" class="img-thumbnail" alt="..."> </a> 
+                          <a href="images/slider/slider01.jpg" data-fancybox>  <img src="images/slider/slider01.jpg" class="img-thumbnail" alt="..."> </a> 
+                          <a href="images/slider/slider01.jpg" data-fancybox>  <img src="images/slider/slider01.jpg" class="img-thumbnail" alt="..."> </a>
+                          </div>
+                  
+                        </div>
+                      </div>
+                    </div>
+                    <div class="accordion-item">
+                      <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
+                          Accordion Item #2
+                        </button>
+                      </h2>
+                      <div id="panelsStayOpen-feTwo" class="accordion-collapse collapse " aria-labelledby="panelsStayOpen-headingTwo">
+                        <div class="accordion-body ">
+                          <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                        </div>
+                      </div>
+                    </div>
+                    <div class="accordion-item">
+                      <h2 class="accordion-header" id="panelsStayOpen-headingThree">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
+                          Accordion Item #3
+                        </button>
+                      </h2>
+                      <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingThree">
+                        <div class="accordion-body">
+                          <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+          </section>  
+          
+        </div>
+     </div>    
+    </section>     
+        <!-- end form thong bao -->
+    
+   
+
+        
      <script src="js/jquery-3.6.0.min.js"></script>
      <script src="js/bootstrap.min.js"></script>
      <script src="js/bootbox.all.min.js"></script>
+     <script src="fancybox-master/dist/jquery.fancybox.min.js"></script>
      <script src="jsUser/functions.js"></script>
+     <script src="jsUser/appearMenu.js"></script>
+     <script src="jsUser/bootbox.js"></script>
     <script src="jsUser/main.js"></script>
      <script src="jsUser/dangky.js"></script>
      <script src="jsUser/ajax.js"></script>    
      <script src="jsUser/sigin.js"></script>
-     <Script src="jsUser/editinfo.js"></Script>
+     <Script src="jsUser/editUser.js"></Script>
      <Script src="jsUser/post.js"></Script>
-    
+     <script src="jsUser/buildMypost.js"></script>
+     <script src="jsUser/buildInfo.js"></script>
+
+
 </body>
+
 </html>

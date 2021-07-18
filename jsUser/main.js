@@ -1,13 +1,19 @@
-
 var username = localStorage.getItem("username");
 var avt = localStorage.getItem("avt");
-if(username !=null){
-   appearLoginMenu(username,avt);
+var rank = localStorage.getItem("rank");
+if(username ==null || username==undefined || username==""){
+
 }else{
-   
+   if(rank=='admin1612'){
+      appearLoginAdmin(username,avt);
+   }else{
+      appearLoginMenu(username,avt);
+   }    
 }
-console.log(makeid());
-    $(".linksignin").click(function(){
+//Xuất hiện form trang chủ đầu tiên
+appearTable('formtrangchu'); 
+
+       $(".linksignin").click(function(){
        appearTable('formdangnhap');
     });
     $(".linkdangky").click(function(){
@@ -24,15 +30,25 @@ console.log(makeid());
          
      });
      $('.linkhome').click(function(){
-       disappearTable();
+      appearTable('formtrangchu');
      });
      $('.linkpost').click(function (e) { 
         e.preventDefault();
-        appearTable('formdangbai');
-        
+        appearTable('formdangbai');  
      });
-    
-   
+     $('.linkinfo').click(function(){
+        appearTable('forminfo');
+        buildHTMLInfoClient();
+     });
+     $('.btn-mypost').click(function(){
+         appearTable('formmypost');
+         buildHTMLPost();
+     });
+ $(".scrollup").click(function(){
+   $([document.documentElement,document.body]).animate({
+      scrollTop: 0,
+  },50);
+ }); 
 $('.btn-signout').click(function(){
    localStorage.removeItem("username");
    localStorage.removeItem("password");
@@ -43,6 +59,7 @@ $('.btn-signout').click(function(){
    localStorage.removeItem("giotinh");
    location.reload();
 });
+
 
 
 

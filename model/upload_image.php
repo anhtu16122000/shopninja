@@ -15,7 +15,6 @@
                         $imageName = $name.".".$extension;
                         $arraynameImage[] = $imageName;
                         @move_uploaded_file($data['tmp_name'][$key],'images/post/'.$imageName);
-                      
                     }
                 }
                 if(!empty($arraynameImage)){
@@ -55,8 +54,9 @@
             $sanpham = new tableSanpham;
             $baiviet = new tableBaiViet;
             if($sanpham->insert($masp,$sever,$power,$card,$cost,$team)){
-               
-                $baiviet->insert($mabaiviet,$nameImage,$description,$username,$masp);
+                date_default_timezone_set('Asia/Ho_Chi_Minh');
+                $time = date("G:i \N\g\à\y\ d/m/Y",mktime());
+                $baiviet->insert($mabaiviet,$nameImage,$description,$username,$masp,$time);
               
                 $res[$event] =1;
                 $res['mabaiviet'] = $mabaiviet;

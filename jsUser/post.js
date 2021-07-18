@@ -9,7 +9,7 @@ $(document).ready(function () {
         chienluc.innerHTML = format_money(parseInt(range.value),"");
      });
      $("#btn-minus-post").click(function(){
-        range.value = parseInt(range.value) -1000;
+        range.value = parseInt(range.value)-1000;
         chienluc.innerHTML = format_money(parseInt(range.value),"");
      });
   //Cập nhật giá trị thanh trượt hiện tại (mỗi khi bạn kéo tay cầm thanh trượt)
@@ -41,8 +41,7 @@ $(document).ready(function () {
       var description = $("#text-des-post").val();
       var cost = $("#ip-cost-post").val();
       if(sever.trim()==""){
-         bootboxwarning("Bạn chưa nhập server ","Hãy kiểm tra lại sever",function(){});
-         
+         bootboxwarning("Bạn chưa nhập server ","Hãy kiểm tra lại sever",function(){}); 
       }else if(cost.trim()==""){
          bootboxwarning("Vui lòng nhập vào giá tiền ","Hãy kiểm tra lại giá tiền",function(){});
       }else if(isNumeric(cost)==false){
@@ -54,25 +53,28 @@ $(document).ready(function () {
                   
             });
          }else{
-            bootboxalert("Bài đăng của bạn sẽ xuất hiện sau khi được kiểm duyệt </br> Hãy nhấn <strong>OK</strong> để hoàn thành thao tác ","Cảm ơn bạn đã đăng bài",function(){
+            bootboxalert("Bài đăng của bạn sẽ xuất hiện sau khi được kiểm duyệt </br> Hãy nhấn <strong>OK</strong> để hoàn thành thao tác ","Cảm ơn bạn đã đăng bài",function(result){
+
+                     if(result==true){
+                        var submitpost = document.getElementById("upload-form");
+                  
+                        var dataSend= {event:'post',masp:masp,card:card,sdt:sdt,link:link,gender:gender
+                                       ,username:username,sever:sever,team:team,power:power
+                                       ,description:description,cost:cost};
                      
-                     var submitpost = document.getElementById("upload-form");
+                                    
+                        queryPOST_json('model/upload_image.php',dataSend,function(res){
+                           
+                           if(res.post==1){
+                              var mabaiviet = res.mabaiviet;
+                              $('.insert-send-data').html('<input type="text" value="'+mabaiviet+'" name="mabaiviet" hidden id="send-masp-post">');
+                              submitpost.submit();
+                           }else if(res.post==0){
+                              bootboxerror("Đăng bài thất bại");
+                           }
+                        });
+                     }   
                   
-                     var dataSend= {event:'post',masp:masp,card:card,sdt:sdt,link:link,gender:gender
-                                    ,username:username,sever:sever,team:team,power:power
-                                    ,description:description,cost:cost};
-                  
-                                 
-                     queryPOST_json('model/upload_image.php',dataSend,function(res){
-                        console.log(res);
-                        if(res.post==1){
-                           var mabaiviet = res.mabaiviet;
-                           $('.insert-send-data').html('<input type="text" value="'+mabaiviet+'" name="mabaiviet" hidden id="send-masp-post">');
-                           submitpost.submit();
-                        }else{
-                           bootboxerror("Đăng bài thất bại");
-                        }
-                     });
                     
                     
                      });

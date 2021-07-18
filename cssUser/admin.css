@@ -1,0 +1,228 @@
+*{
+    padding:0px;
+    margin:0px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.btn-delete-info{
+    padding: 2px 15px;
+}
+link{
+    color: rgb(7, 40, 228);
+}
+
+/* Custome for mobile */
+@media only screen and (max-width: 600px) {
+ 
+ 
+    /* ===================================Form my post============================ */
+    .formmypost  .title{
+        color:rgb(148, 1, 99);
+        text-align: center;
+        font-size:24px
+        
+    }
+    .formmypost .content{
+        background-color: rgba(204, 204, 204, 0.808);
+        border-radius: 6px ;
+        padding:10px;
+    }
+    .formmypost{   
+        position:absolute;
+        top:55px;
+        z-index:5;    
+    }
+    
+      /* ===================================Form my post============================ */
+      
+    /* ===================================Form add info============================ */
+    .formaddinfo  .title{
+        color:rgb(148, 1, 99);
+        text-align: center;
+        font-size:24px
+        
+    }
+    .formaddinfo .content{
+        background-color: rgba(204, 204, 204, 0.808);
+        border-radius: 6px ;
+        padding:10px;
+    }
+    .formaddinfo{   
+        position:absolute;
+        top:55px;
+        z-index:5;    
+    }
+    
+      /* ===================================Form add info============================ */
+        /* ===================================Form NON post============================ */
+    .formnonpost  .title{
+        color:rgb(148, 1, 99);
+        text-align: center;
+        font-size:24px
+        
+    }
+    .formnonpost .content{
+        background-color: rgba(204, 204, 204, 0.808);
+        border-radius: 6px ;
+        padding:10px;
+    }
+    .formnonpost{   
+        position:absolute;
+        top:55px;
+        z-index:5;    
+    }
+      /* ===================================Form NON post============================ */
+
+   
+   
+    
+    
+       
+    body{
+        margin-top:10px;    
+    }
+    .hidden{
+        display: none;
+    }
+    .menu a{
+        color: #000;
+        font-size: 30px;
+    }
+   
+    .nav-link:focus, .nav-link:hover {
+        color: #f03800;
+    }
+    
+   
+    .scrollup img{
+       
+        width: 75px;
+        height: 75px;
+    }
+    
+  }
+  /* Custome for PC */
+@media only screen and (min-width: 600px){
+   
+    /*========== START FORM MY POST =======*/
+    .formmypost  .title{
+        color:rgb(148, 1, 99);
+        text-align: center;
+        font-size:30px
+        
+    }
+   
+    .formmypost{   
+        position:absolute;
+        top:40px;
+        z-index:1;
+        
+    }
+    .formmypost .content{
+        background-color: rgba(204, 204, 204, 0.808);
+        border-radius: 6px ;
+        padding:10px;
+    }
+     /*========== START FORM ADD INFOR=======*/
+     .formaddinfo .title{
+        color:rgb(148, 1, 99);
+        text-align: center;
+        font-size:30px
+        
+    }
+   
+    .formaddinfo{   
+        position:absolute;
+        top:40px;
+        z-index:1;
+        
+    }
+    .formaddinfo .content{
+        background-color: rgba(204, 204, 204, 0.808);
+        border-radius: 6px ;
+        padding:10px;
+    }
+    
+    .formnonpost  .title{
+        color:rgb(148, 1, 99);
+        text-align: center;
+        font-size:30px
+        
+    }
+   
+    .formnonpost{   
+        position:absolute;
+        top:40px;
+        z-index:1;
+        
+    }
+    .formnonpost .content{
+        background-color: rgba(204, 204, 204, 0.808);
+        border-radius: 6px ;
+        padding:10px;
+    }
+  
+    .card-img-top{
+        height: 180px;
+    }
+    
+    .dropdownsignout{
+        margin-left: 50px;
+    }
+    .menufive{
+        margin-left:50px;
+        background-color: rgba(212, 0, 255, 0.336);
+        border-radius: 10px;
+    }
+    .menutitle{
+        margin-left: 200px;
+    }
+    body{
+        margin-top:10px;
+       
+    }
+    .hidden{
+        display: none;
+    }
+    .menu a{
+        color: #000;
+        font-size: 30px;
+    }
+    .slider{
+        position: fixed;
+        background-attachment: fixed;
+        top:45px;
+        left:0px;
+    }
+    .nav-link:focus, .nav-link:hover {
+        color: #f03800;
+    }
+  
+}
+
+#span-card-post{
+    
+    padding: 0px;
+    margin: 0px;
+    background-color: rgba(215, 250, 248, 0);
+}
+.spanchonanh{
+    cursor: pointer;
+    text-align: 40px;
+    border-radius:10px;
+    background-color: rgba(215, 243, 250, 0.692);
+}
+.main-content a{
+    color:#000;
+    text-decoration: none;
+}
+.cost{
+    color: #f03800;
+}
+.desciption-content{
+    font-family:'Times New Roman', Times, serif;
+    font-size:18px;
+}
+
+
+
+

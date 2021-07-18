@@ -6,9 +6,6 @@
             data: dataSend,
             dataType:'JSON',
             success:callback,
-            error:function(res){
-                console.log(res);
-            },
             async:true
         });
     }
@@ -28,8 +25,7 @@
             url: url,
             data: data,
             dataType: "TEXT",
-            success:callback,
-            
+            success:callback,       
             async:true
         });
     }

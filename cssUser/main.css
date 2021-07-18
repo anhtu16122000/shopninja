@@ -3,8 +3,86 @@
     margin:0px;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+ body{
+            background-attachment:fixed;
+        }
+ .description{
+     font-family: 'Times New Roman', Times, serif;
+     font-size: 18px;
+ }  
+ .info-title{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 24px;
+ }
+ .link{
+    background-color: aqua;
+    border-radius: 7px;
+ }
 /* Custome for mobile */
 @media only screen and (max-width: 600px) {
+      /* ===================================Form trang chủ============================ */
+    .formtrangchu  .title{
+        color:rgb(148, 1, 99);
+        text-align: center;
+        font-size:24px;  
+    }
+    
+    .formtrangchu{   
+        position:absolute;
+        top:250px;
+        z-index:1;  
+        
+    }
+    .formtrangchu .content{
+        background-color: rgba(204, 204, 204, 0.808);
+        border-radius: 6px ;
+        padding:10px;
+    }
+      /* ===================================END Form trang chủ============================ */
+
+    /* ===================================Form my post============================ */
+    .formmypost  .title{
+        color:rgb(148, 1, 99);
+        text-align: center;
+        font-size:24px
+        
+    }
+    .formmypost .content{
+        background-color: rgba(204, 204, 204, 0.808);
+        border-radius: 6px ;
+        padding:10px;
+    }
+    .formmypost{   
+        position:absolute;
+        top:250px;
+        z-index:5;    
+    }
+      /* ===================================Form my post============================ */
+
+      /* ===================================Form info============================ */
+      .forminfo  .title{
+        color:#0b0379 ;
+        text-align: center;
+        font-size:24px
+        
+    }
+    .forminfo .content{
+        background-color: rgba(204, 204, 204, 0.808);
+        border-radius: 6px ;
+        padding:10px;
+    }
+    .forminfo{   
+        position:absolute;
+        top:250px;
+        z-index:5;    
+    }
+      /* ===================================Form info============================ */
+
+   
+   
+    
+    
+       
     body{
         margin-top:10px;    
     }
@@ -31,9 +109,9 @@
     }
     .formdangnhap{   
         position:absolute;
-        top:170px;
+        top:200px;
         left:0px;
-        z-index:1;
+       z-index:5;
       
     }
     .formdangnhap .content{
@@ -43,9 +121,9 @@
     }
     .formdangbai{
         position:absolute;
-        top:170px;
+        top:190px;
         left:0px;
-        z-index:1;
+       z-index:5;
     }
     .formdangbai .content{
         background-color: rgba(204, 204, 204, 0.808);
@@ -66,7 +144,7 @@
         position:absolute;
         top:170px;
         left:0px;
-        z-index:1;
+       z-index:5;
     }
     .formdangky .content{
         background-color: rgba(204, 204, 204, 0.808);
@@ -75,9 +153,9 @@
     }
     .formupdate{
         position:absolute;
-        top:170px;
+        top:190px;
         left:0px;
-        z-index:1;
+       z-index:5;
     }
     .formupdate .content{
         background-color: rgba(204, 204, 204, 0.808);
@@ -90,10 +168,79 @@
         text-align: center;
         font-size:30px
     }
+    .scrollup img{
+       
+        width: 75px;
+        height: 75px;
+    }
     
   }
   /* Custome for PC */
 @media only screen and (min-width: 600px){
+    /*========== START FORM TRANG CHU =======*/
+    .formtrangchu  .title{
+        color:rgb(148, 1, 99);
+        text-align: center;
+        font-size:30px
+        
+    }
+   
+    .formtrangchu{   
+        position:absolute;
+        top:90px;
+        z-index:1;
+        
+    }
+    .formtrangchu .content{
+        background-color: rgba(204, 204, 204, 0.808);
+        border-radius: 6px ;
+        padding:10px;
+    }
+    /*========== END FORM TRANG CHU =======*/
+    /*========== START FORM MY POST =======*/
+    .formmypost  .title{
+        color:rgb(148, 1, 99);
+        text-align: center;
+        font-size:30px
+        
+    }
+   
+    .formmypost{   
+        position:absolute;
+        top:90px;
+        z-index:1;
+            
+    }
+    .formmypost .content{
+        background-color: rgba(204, 204, 204, 0.808);
+        border-radius: 6px ;
+        padding:10px;
+    }
+    /*========== END FORM MY POST =======*/
+     /*========== START FORM info =======*/
+     .forminfo  .title{
+        color:#0b0379 ;
+        text-align: center;
+        font-size:30px
+        
+    }
+   
+    .forminfo{   
+        position:absolute;
+        top:90px;
+        z-index:1;
+        
+    }
+    .forminfo .content{
+        background-color: rgba(204, 204, 204, 0.808);
+        border-radius: 6px ;
+        padding:10px;
+    }
+    /*========== END FORM info =======*/
+    .card-img-top{
+        height: 180px;
+    }
+    
     .dropdownsignout{
         margin-left: 50px;
     }
@@ -117,7 +264,8 @@
         font-size: 30px;
     }
     .slider{
-        position: relative;
+        position: fixed;
+        background-attachment: fixed;
         top:45px;
         left:0px;
     }
@@ -134,7 +282,7 @@
         position:absolute;
         top:100px;
         left:50px;
-        z-index:1;
+       z-index:5;
       
     }
     .formdangnhap .content{
@@ -146,7 +294,7 @@
         position:absolute;
         top:40px;
         left:50px;
-        z-index:1;
+       z-index:5;
     }
     .formdangbai .content{
         background-color: rgba(204, 204, 204, 0.808);
@@ -167,7 +315,7 @@
         position:absolute;
         top:40px;
         left:50px;
-        z-index:1;
+       z-index:5;
     }
     .formdangky .content{
         background-color: rgba(204, 204, 204, 0.808);
@@ -178,7 +326,7 @@
         position:absolute;
         top:40px;
         left:50px;
-        z-index:1;
+       z-index:5;
     }
     .formupdate .content{
         background-color: rgba(204, 204, 204, 0.808);
@@ -212,6 +360,22 @@
     border-radius:10px;
     background-color: rgba(215, 243, 250, 0.692);
 }
+.main-content a{
+    color:#000;
+    text-decoration: none;
+}
+.cost{
+    color: #f03800;
+}
+.desciption-content{
+    font-family:'Times New Roman', Times, serif;
+    font-size:18px;
+}
+.card-body{
+    margin: 0;
+    padding-bottom: 0px;
+}
+
 
 
 
